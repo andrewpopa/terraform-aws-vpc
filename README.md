@@ -1,2 +1,2 @@
 # terraform-aws-vpc
-Terraform module to create VPC
+Terraform module to create VPC on AWS
