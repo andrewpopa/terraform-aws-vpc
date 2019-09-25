@@ -1,0 +1,22 @@
+env:
+  global:
+  - secure: w+hvqVxjFULJISkC9ZS5BeGkPsQJ8ELWys2RqXad1vnlOX8NfG5N3B+wvODQ3Ze+h8hVLzz/eyXVuWmcJyiAPtb+VrKkUpvcw5k2SYEweDcb93hUO30Oqc/TbuLU2uajpF3EepNl9dztO54PI7F1Wogqk602ipmlggMeGQDkDU5dxZ1T8tN67adrwy+4tE97N+b+ZBcRtTMWzq+19v1tIQfYtVjdwNTSZHmiM9qfRb0oKdfp3Y/VuHIsBi0KmmorkQqamww7vFkM+PFYJVt4rVOYue0vaCVFT4dvmxyVeGsz10IidcKNukR/DazRXakf2/8b/vtY4eC5Yq/L3g3qZbLys9Ry5Yt+7ryyTLv3mP/fOr21/VhqeacigK52sypCeNm3ceaHjPLNnTdjIYYsgeI3KuV572wzymXoKtqNgsEORaYecGzpE8rIeIlRoL3X4FHcrdlvmRYadBCyzokwHOXyYc1uKTHkxiqVmunVTr6RgP77Tn8pGVtszQhKeOxU/TrWADtn91zs6Y2wSciX35/tY/tGMTf3q/81ugO3DAi/HfX5yzziliMPAlMPwF+cyw/GJjR+QwG/pYXpouTi0yyw6jPgiD8RyzqDfkaWFc+sGeUzVpIl1m5mGnZ+Uim/pFfkKvKRNATAwljTfKX7TQF4AQTszw6bA5wp4R53uWQ=
+  - secure: JGS94ZcAo6a7tHbxQCy2aEBVFMKbr7WWfCpI+pQ+OCUDB7OvrVF3KfwXeHPAEHK0QgCejan/gT9bvmjBeHn0/EsD3M5Hiv1MDX6W5tUkA+YIJE3jR18s24MrsnBtzi6zhjybD773QGcPkq2tOl3O6dCiTeFZ9DCyKYctdjx1+FiAehY3pNPZPltpavCBVsi5+vthfMLhLQR3Zmf9SY5F3v6iwitcUO8cKEKBI5bdcPsZDpyRA1QffzoGuesuIsK8J7S+s8sbCVmxoeYFO6+eH1naNp1ewSwsoBMdjZedquuTU+BxGBAlS7aJov+GLgAbrVz169gEf9sBrOjRMXJoEZuEXrO8iKfRfxCIk+FIBx7kOAud+/+Fhn6zqJTugyg2Xhd2gy3b06oiOzkiCWO5lTAJdSQP7VAxUyAgzwKnl8ykIcr1hw7DoMmY6jUmUQiIhlQJ+WcChCnFxRlHNFr57VPH7rjRhuWuxKTU4ggXKtio9wc4D4Ng+ft4OIkqngjll4xPqCuu4P5Wpik5Gt6isiXcA7utTFSPrXfXtC0XCRDGQUKGi6KcwSMSJoIxFDq3Fq3YWcHv9DoSzXmWuyNv1jsJfDNhQa2UN6FAbU53FLOAZAoqbHijXqzlADxXS9NTFHoXqdzc6Xb6u4P2rvxF6pECvOqK3NGdnTPrPX4swbs=
+
+language: ruby
+dist: xenial
+sudo: required
+before_install:
+- echo "before install"
+- export AWS_REGION=eu-central-1
+install:
+- gem install bundler --no-rdoc --no-ri
+- bundle install
+- sudo curl -sL -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
+- sudo unzip -d /usr/local/bin /tmp/terraform.zip
+script:
+- terraform fmt
+- terraform init
+- bundle exec kitchen converge
+- bundle exec kitchen verify
+- bundle exec kitchen destroy
