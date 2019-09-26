@@ -151,3 +151,6 @@ travis setup releases
 ```
 
 Will add releases information to yaml file. Releases can be triggered using tags.
+
+# TODO
+- [ ] add more terraform functionality for VPC creation
