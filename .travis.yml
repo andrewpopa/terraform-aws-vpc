@@ -18,7 +18,7 @@ deploy:
   provider: releases
   api_key:
     secure: Kh2WfpekJ4cGDtF4/dPe61dC7W4xfw+20BCsb20cH+ryTVYEAvlfB7yuxnQ6a9NBofi488mEt2NbJRap0w4uc/LYmIRuWAeCyRlfEL5ugX9Fj5a5wZ7s+q0hX2vCBZmqt9h1ZoWjT3M87iE2Z9k/2vmgAXec2H/qoDYupoyHw9QJS7n5uCbWD5GdpgIyf2PYB2JFeg9G2yD+xkLHmQB5hRDpt3tIJpDDjWKnm7mIePGctssLl3TL3nWSrCrxrAFucF8X6xMZzrlDoxLryl0xiImAQyPi3EEl5B3TjES/cWjLI0yT8diNcUCzMn5w39QRHxITlVCeBw4qnf0P3CRCMVKWw8Oug6syveaH9FNvYquEoF3FFkuzaKOummG6kE1E1ksFKJLdZrxATU4+QrGlu2fkP09uwrZlo8QiYXc2d2Iij+4+L5SNtZmJRNsAMR+QCu8WaQ2swv41MyMQvjQEX0iYs91Tugl1nu6+zOyMhlqu21mamrTgegI6yKOke0mzESut1gOqQvaDLfbCTgyTv9M8AtsH1unaJ2So4Yk8VTd+VdskJk4jaW8ztx+jtjLBS0IWIO0krOSZiGlsXaoq8VfDnw1TyQGqbUp88ci0TEDcbFIiEmHgtqOfs4+8WxZrnft7Ok2kuGWGiNDIkTsD1dfII6BY+gBhMUPZWcQb+KY=
-  file: ''
+  skip_cleanup: true
   on:
     repo: andrewpopa/terraform-aws-vpc
     tags: true
