@@ -11,7 +11,7 @@ verifier:
   name: terraform
 
 platforms:
-  - name: terraform
+  - name: aws
 
 suites:
   - name: default
