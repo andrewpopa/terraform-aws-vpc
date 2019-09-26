@@ -9,4 +9,5 @@ module "vpc" {
     internet_gw = "my-internet-gateway"
   }
   vpc_subnets = ["172.16.10.0/24", "172.16.11.0/24", "172.16.12.0/24"]
+  
 }
