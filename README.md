@@ -31,21 +31,29 @@ module "vpc" {
 
   # VPC
   cidr_block = "172.16.0.0/16"
+  vpc_subnets = ["172.16.10.0/24", "172.16.11.0/24", "172.16.12.0/24"]
   vpc_tags = {
     vpc         = "my-aws-vpc"
     subnet      = "subnet"
     internet_gw = "my-internet-gateway"
   }
-  vpc_subnets = ["172.16.10.0/24", "172.16.11.0/24", "172.16.12.0/24"]
 }
 ```
 # Inputs
 | **Name**  | **Type** | **Default** | **Required** | **Description** |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | cidr_block | string | 10.0.0.0/16 | no | [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) block for you VPC |
+| vpc_subnets | list | ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"] | no | List of subnets |
 | vpc_tags["vpc"] | map | my-aws-vpc | no | tag - Name for your VPC |
 | vpc_tags["subnet"] | map | subnet | no | tag - Name for your subnet |
 | vpc_tags["internet_gw"] | map | my-internet-gateway | no | tag - Name for your internet gateway |
+
+## How to use inputs
+Make sure you understand how you split the network, otherwise use defaults
+```
+cidr_block = "172.16.0.0/16"
+vpc_subnets = ["172.16.10.0/24", "172.16.11.0/24", "172.16.12.0/24"]
+```
 
 # Outputs
 | **Name**  | **Type** | **Description** |
@@ -53,7 +61,7 @@ module "vpc" {
 | vpc_id | string | The ID of the VPC |
 | sub_wildcard | list | List of subnets assigned to VPC |
 
-## How to consume
+## How to use outputs
 Print or reuse this variables at other possible dependencies
 ```
 output "vpc_id" {
@@ -123,7 +131,12 @@ bundle exec kitchen destroy
 ```
 
 ## Remote
-For remote testing [travis](https://travis-ci.org) is used with the same steps, but in remote environment.
+For remote testing [travis](https://travis-ci.org) is used with the same steps as local testing
+
+- install dependencies via bundle install with `Gemfile`
+- download and unzip terraform version 0.12.9
+- terraform init
+- execute kitchen test
 
 ### Assumptions
 - You are logged in travis with your github account.
@@ -132,4 +145,9 @@ For remote testing [travis](https://travis-ci.org) is used with the same steps, 
 
 ![alt text](img/travis.png "Travis config")
 
-- travis is configure to create releases on tags
+### Releases on tags
+```
+travis setup releases
+```
+
+Will add releases information to yaml file. Releases can be triggered using tags.
