@@ -27,7 +27,7 @@ Module will use all availability zones with state `available` based on region wh
 
 ```
 module "vpc" {
-  source = "https://github.com/andrewpopa/terraform-aws-vpc"
+  source = "github.com/andrewpopa/terraform-aws-vpc"
 
   # VPC
   cidr_block = "172.16.0.0/16"
