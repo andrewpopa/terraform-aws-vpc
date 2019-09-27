@@ -42,7 +42,7 @@ module "vpc" {
 # Inputs
 | **Name**  | **Type** | **Default** | **Required** | **Description** |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| cidr_block | string | 10.0.0.0/16 | no | [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) block for you VPC |
+| cidr_block | string | 10.0.0.0/16 | no | [CIDR](https://tools.ietf.org/html/rfc4632) block for you VPC |
 | vpc_subnets | list | ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"] | no | List of subnets |
 | vpc_tags["vpc"] | map | my-aws-vpc | no | tag - Name for your VPC |
 | vpc_tags["subnet"] | map | subnet | no | tag - Name for your subnet |
