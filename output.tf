@@ -3,7 +3,12 @@ output "vpc_id" {
   value       = join("", aws_vpc.tf_vpc.*.id)
 }
 
-output "sub_wildcard" {
-  description = "List of subnets assigned to VPC"
-  value       = aws_subnet.tf_subnet.*.id
+output "public_subnets" {
+  description = "List of public subnets assigned to VPC"
+  value       = aws_subnet.tf_public_subnet.*.id
+}
+
+output "private_subnets" {
+  description = "List of private subnets assigned to VPC"
+  value       = aws_subnet.tf_private_subnet.*.id
 }
