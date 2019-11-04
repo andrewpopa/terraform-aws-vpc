@@ -125,6 +125,7 @@ Bundler version 2.0.2 (2019-06-13 commit 496bca538)
 or install it 
 
 ```bash
+cd example/
 gem install bundler
 ```
 
