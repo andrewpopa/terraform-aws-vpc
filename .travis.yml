@@ -9,6 +9,7 @@ install:
 - sudo curl -sL -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
 - sudo unzip -d /usr/local/bin /tmp/terraform.zip
 script:
+- cd example/
 - terraform fmt
 - terraform init
 - bundle exec kitchen converge
