@@ -7,14 +7,17 @@ provisioner:
   name: terraform
 
 verifier:
-  name: terraform
+  name: awspec
   systems:
     - name: basic
       backend: local
-  
 
 platforms:
-  - name: terraform
+  - name: aws
 
 suites:
   - name: default
+    verifier:
+      name: awspec
+      patterns:
+      - "test/integration/default/state.rb"
