@@ -87,7 +87,7 @@ resource "aws_main_route_table_association" "tf_public_route_table" {
 # NAT
 resource "aws_eip" "tf_eip" {
   vpc        = true
-  depends_on = ["aws_internet_gateway.tf_gw"]
+  depends_on = [aws_internet_gateway.tf_gw]
 }
 
 resource "aws_nat_gateway" "tf_nat_gw" {
