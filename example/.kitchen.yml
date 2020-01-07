@@ -20,4 +20,4 @@ suites:
     verifier:
       name: awspec
       patterns:
-      - "test/integration/default/state.rb"
+      - "example/test/integration/default/state.rb"
