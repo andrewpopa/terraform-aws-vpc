@@ -19,3 +19,5 @@ suites:
   - name: default
     verifier:
       name: awspec
+      patterns:
+      - "test/integration/default/state.rb"
