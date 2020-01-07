@@ -3,7 +3,7 @@ dist: xenial
 sudo: required
 before_install:
 - echo "before install"
-#- cd example/
+- cd example/
 install:
 - gem install bundler --no-rdoc --no-ri
 - bundle install
@@ -13,6 +13,7 @@ install:
 - terraform init
 before_script:
 - echo "before script"
+- cd ../
 script:
 - bundle exec kitchen converge
 - bundle exec kitchen verify
