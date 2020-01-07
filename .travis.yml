@@ -3,15 +3,17 @@ dist: xenial
 sudo: required
 before_install:
 - echo "before install"
-- cd example/
+#- cd example/
 install:
 - gem install bundler --no-rdoc --no-ri
 - bundle install
 - sudo curl -sL -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
 - sudo unzip -d /usr/local/bin /tmp/terraform.zip
-script:
 - terraform fmt
 - terraform init
+before_script:
+- echo "before script"
+script:
 - bundle exec kitchen converge
 - bundle exec kitchen verify
 - bundle exec kitchen destroy
