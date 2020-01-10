@@ -25,3 +25,4 @@ deploy:
   on:
     repo: andrewpopa/terraform-aws-vpc
     tags: true
+    
