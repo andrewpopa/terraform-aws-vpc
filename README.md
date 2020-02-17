@@ -86,7 +86,7 @@ output "private_subnets" {
   value = module.vpc.private_subnets
 }
 ```
-
+<!--
 # Testing
 Module has implemented testing with [kitchen](https://kitchen.ci/) and [kitchen-terraform](https://newcontext-oss.github.io/kitchen-terraform/)
 
@@ -166,7 +166,7 @@ travis setup releases
 ```
 
 Will add releases information to yaml file. Releases can be triggered using tags.
-
+-->
 # TODO
 - [ ] add more terraform functionality for VPC creation
 - [ ] use separate variables for tags instead of map
