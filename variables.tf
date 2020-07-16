@@ -29,3 +29,9 @@ variable "vpc_private_subnets" {
   type        = list
   default     = ["10.0.15.0/24", "10.0.16.0/24", "10.0.17.0/24"]
 }
+
+variable "availability_zones" {
+  description = "List of availability zones"
+  type = list
+  default = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
+}
