@@ -35,6 +35,7 @@ module "vpc" {
   cidr_block          = "172.16.0.0/16"
   vpc_public_subnets  = ["172.16.10.0/24", "172.16.11.0/24", "172.16.12.0/24"]
   vpc_private_subnets = ["172.16.13.0/24", "172.16.14.0/24", "172.16.15.0/24"]
+  availability_zones  = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
   vpc_tags = {
     vpc            = "my-aws-vpc"
     public_subnet  = "public-subnet"
@@ -50,6 +51,7 @@ module "vpc" {
 | cidr_block | string | 10.0.0.0/16 | no | [CIDR](https://tools.ietf.org/html/rfc4632) block for you VPC |
 | vpc_public_subnets | list | ["10.0.10.0/24", "10.0.11.0/24", "10.0.12.0/24"] | no | List of public subnets |
 | vpc_private_subnets | list | ["10.0.13.0/24", "10.0.14.0/24", "10.0.15.0/24"] | no | List of private subnets |
+| availability_zones | list | ["eu-central-1a", "eu-central-1b", "eu-central-1c"] | no | List of private subnets |
 | vpc_tags["vpc"] | map | my-aws-vpc | no | tag - Name for your VPC |
 | vpc_tags["public_subnet"] | map | subnet | no | tag - Name for your public subnet |
 | vpc_tags["private_subnet"] | map | subnet | no | tag - Name for your private subnet |
