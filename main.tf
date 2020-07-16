@@ -9,18 +9,14 @@ resource "aws_vpc" "tf_vpc" {
   }
 }
 
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
 resource "aws_subnet" "tf_public_subnet" {
   count             = length(var.vpc_public_subnets)
   vpc_id            = aws_vpc.tf_vpc.id
   cidr_block        = var.vpc_public_subnets[count.index]
-  availability_zone = data.aws_availability_zones.available.names[count.index]
+  availability_zone = var.availability_zones[count.index]
 
   tags = {
-    Name = join("-", [var.vpc_tags["public_subnet"], data.aws_availability_zones.available.names[count.index]])
+    Name = join("-", [var.vpc_tags["public_subnet"], var.availability_zones[count.index]])
   }
 }
 
@@ -28,10 +24,10 @@ resource "aws_subnet" "tf_private_subnet" {
   count             = length(var.vpc_private_subnets)
   vpc_id            = aws_vpc.tf_vpc.id
   cidr_block        = var.vpc_private_subnets[count.index]
-  availability_zone = data.aws_availability_zones.available.names[count.index]
+  availability_zone = var.availability_zones[count.index]
 
   tags = {
-    Name = join("-", [var.vpc_tags["private_subnet"], data.aws_availability_zones.available.names[count.index]])
+    Name = join("-", [var.vpc_tags["private_subnet"], var.availability_zones[count.index]])
   }
 }
 
