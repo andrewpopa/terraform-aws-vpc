@@ -72,6 +72,7 @@ vpc_private_subnets = ["172.16.13.0/24", "172.16.14.0/24", "172.16.15.0/24"]
 | vpc_id | string | The ID of the VPC |
 | public_subnets | list | List of public subnets assigned to VPC |
 | private_subnets | list | List of private subnets assigned to VPC |
+| peer_id | string | Id of AWS account |
 
 ## How to use outputs
 Print or reuse this variables at other possible dependencies
