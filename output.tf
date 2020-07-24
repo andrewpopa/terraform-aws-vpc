@@ -14,5 +14,6 @@ output "private_subnets" {
 }
 
 output "peer_id" {
+  description = "Id of AWS account for VPC"
   value = aws_vpc.tf_vpc.owner_id
 }
