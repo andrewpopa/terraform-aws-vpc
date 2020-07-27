@@ -13,7 +13,7 @@ output "private_subnets" {
   value       = aws_subnet.tf_private_subnet.*.id
 }
 
-output "peer_id" {
+output "owner_id" {
   description = "Id of AWS account for VPC"
   value = aws_vpc.tf_vpc.owner_id
 }
