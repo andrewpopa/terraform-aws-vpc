@@ -18,6 +18,11 @@ output "owner_id" {
   value = aws_vpc.tf_vpc.owner_id
 }
 
+output "main_route_table_id" {
+  description = "Main route table ID"
+  value = aws_vpc.tf_vpc.main_route_table_id
+}
+
 output "cidr_block" {
   description = "CIDR block"
   value = aws_vpc.tf_vpc.cidr_block
