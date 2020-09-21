@@ -17,3 +17,8 @@ output "owner_id" {
   description = "Id of AWS account for VPC"
   value = aws_vpc.tf_vpc.owner_id
 }
+
+output "main_route_table_id" {
+  description = "Main route table ID"
+  value = aws_vpc.tf_vpc.main_route_table_id
+}
